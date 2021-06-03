@@ -2,6 +2,7 @@ package com.university.Controllers;
 
 import com.university.Entities.Student;
 import com.university.Services.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ import java.util.List;
 
 @RestController
 public class StudentController {
-
-     private final StudentService studentService;
+    @Autowired
+    private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -29,14 +30,15 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return students;
     }
+
     @GetMapping("/Students/{id}")
     public Student getStudent(@PathVariable int id){
         return students.stream().filter(t-> t.getId().equals(id)).findFirst().get();
     }
     @PostMapping("/Students")
     public void addStudents(@RequestBody Student student){
-        //students.add(student);
-        studentService.addStudents(student);
+        students.add(student);
+        //studentService.addStudents(student);
     }
     @PutMapping("/Students/{id}")
     public void updateStudent(@RequestBody Student student,@PathVariable int id){

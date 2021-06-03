@@ -1,14 +1,24 @@
 package com.university.Entities;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Students",schema = "public")
 public class Student {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+    @Column(name = "first_name",nullable = false)
     private String firstName;
+    @Column(name = "last_name",nullable = false)
     private String lastName;
+    @Column(name = "email")
     private String email;
+    @Column(name = "age")
     private int age;
+    @Column(name = "address")
     private String address;
 
     public Student() {
