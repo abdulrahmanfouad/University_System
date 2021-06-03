@@ -5,11 +5,12 @@ import org.springframework.context.annotation.Bean;
 
 
 import java.util.List;
-@Bean
+
 public interface StudentService {
     void addStudents(Student student);
     List<Student> getStudents();
-    Student getStudent(int id);
+    Student getStudentById(int id);
+    Student getStudentByEmail(String email);
     void updateStudent(Student student, int id);
     void deleteStudent(int id);
 
