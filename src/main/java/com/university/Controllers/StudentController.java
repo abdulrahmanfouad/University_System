@@ -2,6 +2,7 @@ package com.university.Controllers;
 
 import com.university.Entities.Student;
 import com.university.Services.StudentService;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,30 +29,28 @@ public class StudentController {
 
     @GetMapping("/Students")
     public List<Student> getAllStudents(){
-        return students;
+        return studentService.getStudents();
     }
 
     @GetMapping("/Students/{id}")
-    public Student getStudent(@PathVariable int id){
-        return students.stream().filter(t-> t.getId().equals(id)).findFirst().get();
+    public Student getStudentById(@PathVariable int id){
+        return studentService.getStudentById(id);
+    }
+
+    @GetMapping("/Students/{email}")
+    public Student getStudentByEmail(@PathVariable String email){
+        return studentService.getStudentByEmail(email);
     }
     @PostMapping("/Students")
     public void addStudents(@RequestBody Student student){
-        students.add(student);
-        //studentService.addStudents(student);
+        studentService.addStudents(student);
     }
     @PutMapping("/Students/{id}")
-    public void updateStudent(@RequestBody Student student,@PathVariable int id){
-        for (int i = 0; i< students.size(); i++){
-            Student s = students.get(i);
-            if (s.getId().equals(id)){
-                students.set(i, student);
-                return;
-            }
-        }
+    public void updateStudent(@RequestBody Student student,@PathVariable int id) throws NotFoundException {
+        studentService.updateStudent(student,id);
     }
     @DeleteMapping("/Students/{id}")
     public void deleteStudent(@PathVariable int id){
-        students.removeIf(t -> t.getId().equals(id));
+        studentService.deleteStudent(id);
     }
 }

@@ -3,14 +3,18 @@ package com.university.Services.Implementation;
 import com.university.Entities.Student;
 import com.university.Repositories.StudentRepository;
 import com.university.Services.StudentService;
+import javassist.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImp implements StudentService {
 
+    @Autowired
     private final StudentRepository studentRepository;
 
     public StudentServiceImp(StudentRepository studentRepository) {
@@ -35,17 +39,21 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public Student getStudentByEmail(String email) {
-        return null;
+        return studentRepository.findByEmail(email);
     }
 
     @Override
-    public void updateStudent(Student student, int id) {
-
+    public void updateStudent(Student student, int id) throws NotFoundException {
+        Student student1 = studentRepository.findById(id);
+     if (student1 == null){
+         throw new NotFoundException("This user is not found");
+     }
+     studentRepository.save(student);
     }
 
     @Override
     public void deleteStudent(int id) {
-
+        studentRepository.deleteById(id);
     }
 
 
