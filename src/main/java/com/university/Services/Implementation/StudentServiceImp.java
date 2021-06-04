@@ -48,7 +48,12 @@ public class StudentServiceImp implements StudentService {
      if (student1 == null){
          throw new NotFoundException("This user is not found");
      }
-     studentRepository.save(student);
+       student.setId(student.getId());
+       student.setFirstName(student.getFirstName());
+       student.setLastName(student.getLastName());
+       student.setEmail(student.getEmail());
+       student.setAge(student.getAge());
+       student.setAddress(student.getAddress());
     }
 
     @Override
