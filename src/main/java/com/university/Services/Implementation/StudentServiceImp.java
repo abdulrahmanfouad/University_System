@@ -46,12 +46,12 @@ public class StudentServiceImp implements StudentService {
     public void updateStudent(Student student, int id) throws NotFoundException {
         Student student1 = studentRepository.getById(id);
 
-        student1.setId(student.getId());
-        student1.setFirstName(student.getFirstName());
-        student1.setLastName(student.getLastName());
-        student1.setEmail(student.getEmail());
-        student1.setAge(student.getAge());
-        student1.setAddress(student.getAddress());
+        student.setId(student1.getId());
+        student.setFirstName(student1.getFirstName());
+        student.setLastName(student1.getLastName());
+        student.setEmail(student1.getEmail());
+        student.setAge(student1.getAge());
+        student.setAddress(student1.getAddress());
     }
 
     @Override
