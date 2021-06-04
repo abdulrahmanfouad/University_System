@@ -19,14 +19,6 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    private List<Student> students = new ArrayList<>( Arrays.asList(
-            new Student(1,"Ahmed","Ali","ahmed@gmail.com",20,"Cairo"),
-            new Student(2,"Akram","Mohamed","akram@gmail.com",21,"Giza"),
-            new Student(3,"Mohamed","Fouad","mido@gmail.com",23,"Alexandria")
-    ));
-
-
-
     @GetMapping("/Students")
     public List<Student> getAllStudents(){
         return studentService.getStudents();
