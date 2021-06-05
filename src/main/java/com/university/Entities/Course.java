@@ -2,7 +2,7 @@ package com.university.Entities;
 
 public class Course {
 
-    private Long id;
+    private String id;
     private String name;
     private String department;
     private int creditHours;
@@ -18,7 +18,7 @@ public class Course {
         this.year = year;
     }
 
-    public Course(Long id, String name, String department, int creditHours, int year) {
+    public Course(String id, String name, String department, int creditHours, int year) {
         this.id = id;
         this.name = name;
         this.department = department;
@@ -26,11 +26,11 @@ public class Course {
         this.year = year;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
