@@ -1,25 +1,25 @@
 package com.university.Entities;
 
-import java.time.LocalDate;
+
 
 public class Book {
 
     private Integer id;
     private String name;
-    private LocalDate createdAt;
+    private String author;
 
     public Book() {
     }
 
-    public Book(Integer id, String name, LocalDate createdAt) {
+    public Book(Integer id, String name, String author) {
         this.id = id;
         this.name = name;
-        this.createdAt = createdAt;
+        this.author = author;
     }
 
-    public Book(String name, LocalDate createdAt) {
+    public Book(String name, String author) {
         this.name = name;
-        this.createdAt = createdAt;
+        this.author = author;
     }
 
     public Integer getId() {
@@ -38,11 +38,11 @@ public class Book {
         this.name = name;
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setAuthor(String author) {
+        author = author;
     }
 }
