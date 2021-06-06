@@ -4,6 +4,7 @@ import com.university.Entities.Book;
 import com.university.Repositories.BookRepository;
 import com.university.Services.BookService;
 import javassist.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 @Service
 public class BookServiceImp implements BookService {
 
+    @Autowired
     private final BookRepository bookRepository;
 
     public BookServiceImp(BookRepository bookRepository) {
@@ -45,6 +47,7 @@ public class BookServiceImp implements BookService {
         Book book1 = bookRepository.getOne(id);
         book1.setName(book.getName());
         book1.setAuthor(book.getAuthor());
+        bookRepository.save(book1);
     }
 
     @Override
