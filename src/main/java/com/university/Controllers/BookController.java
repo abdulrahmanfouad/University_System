@@ -23,15 +23,16 @@ public class BookController {
         return bookService.getBooks();
     }
 
-    @GetMapping("/Book/{id}")
+    @GetMapping("/Books/{id}")
     public Book getBookById(@PathVariable int id){
         return bookService.getBookById(id);
     }
 
-    @GetMapping("/Book/{name}")
-    public Book getBookByName(@PathVariable String name){
-        return bookService.getBookByName(name);
+    @GetMapping("/Book/{courseId}")
+    public Book getBookByCourseId(@PathVariable String courseId){
+        return bookService.getBookByCourseId(courseId);
     }
+
     @PostMapping("/Books")
     public void addBooks(@RequestBody Book book){
         bookService.addBooks(book);

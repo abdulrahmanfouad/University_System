@@ -10,7 +10,7 @@ public interface BookService {
     void addBooks(Book book);
     List<Book> getBooks();
     Book getBookById(int id);
-    Book getBookByName(String name);
+    Book getBookByCourseId(String courseId);
     void updateBook(Book book, int id) throws NotFoundException;
     void deleteBook(int id);
 }
