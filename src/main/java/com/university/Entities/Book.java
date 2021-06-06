@@ -1,11 +1,18 @@
 package com.university.Entities;
 
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Books",schema = "public")
 public class Book {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "author")
     private String author;
 
     public Book() {
@@ -43,6 +50,6 @@ public class Book {
     }
 
     public void setAuthor(String author) {
-        author = author;
+        this.author = author;
     }
 }

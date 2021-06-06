@@ -1,18 +1,44 @@
 package com.university.Entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Instructors",schema = "public")
 public class Instructor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "office")
     private String office;
-    private String rank;
+    @Column(name = "department")
+    private String department;
 
     public Instructor() {
     }
 
-    public Instructor(String name, String office, String rank) {
+    public Instructor(Integer id, String name, String office, String department) {
+        this.id = id;
         this.name = name;
         this.office = office;
-        this.rank = rank;
+        this.department = department;
+    }
+
+    public Instructor(String name, String office, String department) {
+        this.name = name;
+        this.office = office;
+        this.department = department;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -31,11 +57,11 @@ public class Instructor {
         this.office = office;
     }
 
-    public String getRank() {
-        return rank;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }
