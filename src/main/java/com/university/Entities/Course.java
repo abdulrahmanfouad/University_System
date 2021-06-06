@@ -1,33 +1,49 @@
 package com.university.Entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Courses", schema = "public")
 public class Course {
 
-    private Long id;
+    @Id
+    @Column(name = "id")
+    private String id;
+    @Column(name = "name",nullable = false)
     private String name;
+    @Column(name = "department", nullable = false)
     private String department;
+    @Column(name = "creditHours")
     private int creditHours;
+    @Column(name = "year")
+    private int year;
 
     public Course() {
     }
 
-    public Course(String name, String department, int creditHours) {
+    public Course(String name, String department, int creditHours, int year) {
         this.name = name;
         this.department = department;
         this.creditHours = creditHours;
+        this.year = year;
     }
 
-    public Course(Long id, String name, String department, int creditHours) {
+    public Course(String id, String name, String department, int creditHours, int year) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.creditHours = creditHours;
+        this.year = year;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -53,5 +69,13 @@ public class Course {
 
     public void setCreditHours(int creditHours) {
         this.creditHours = creditHours;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }
