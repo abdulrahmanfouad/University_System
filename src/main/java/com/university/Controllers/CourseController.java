@@ -2,7 +2,6 @@ package com.university.Controllers;
 
 
 import com.university.Entities.Course;
-import com.university.Entities.Student;
 import com.university.Services.CourseService;
 import javassist.NotFoundException;
 import org.springframework.web.bind.annotation.*;
