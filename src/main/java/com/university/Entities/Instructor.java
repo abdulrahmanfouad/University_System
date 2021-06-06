@@ -1,6 +1,7 @@
 package com.university.Entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Instructors",schema = "public")
@@ -16,6 +17,9 @@ public class Instructor {
     private String office;
     @Column(name = "department")
     private String department;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Course> courses;
 
     public Instructor() {
     }

@@ -38,8 +38,8 @@ public class BookServiceImp implements BookService {
     }
 
     @Override
-    public Book getBookByName(String name) {
-        return bookRepository.findByName(name);
+    public Book getBookByCourseId(String courseID) {
+        return bookRepository.findByCourseId(courseID);
     }
 
     @Override

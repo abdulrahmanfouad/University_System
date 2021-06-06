@@ -37,6 +37,13 @@ public class CourseServiceImp implements CourseService {
     }
 
     @Override
+    public List<Course> getCoursesByInstructorId(int instructorId) {
+        List<Course> courseList = new ArrayList<>();
+        courseRepository.findAllByInstructorId(instructorId).forEach(courseList::add);
+        return courseList;
+    }
+
+    @Override
     public void updateCourse(Course course, String id) {
         Course course1 = courseRepository.getOne(id);
 

@@ -14,6 +14,8 @@ public class Book {
     private String name;
     @Column(name = "author")
     private String author;
+    @OneToOne(mappedBy = "book")
+    private Course course;
 
     public Book() {
     }
@@ -22,6 +24,12 @@ public class Book {
         this.id = id;
         this.name = name;
         this.author = author;
+    }
+
+    public Book(String name, String author, Course course) {
+        this.name = name;
+        this.author = author;
+        this.course = course;
     }
 
     public Book(String name, String author) {
@@ -52,4 +60,5 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
+
 }

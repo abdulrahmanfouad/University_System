@@ -1,9 +1,6 @@
 package com.university.Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Courses", schema = "public")
@@ -20,15 +17,20 @@ public class Course {
     private int creditHours;
     @Column(name = "year")
     private int year;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Book book;
+    @ManyToOne()
+    private Instructor instructor;
 
     public Course() {
     }
 
-    public Course(String name, String department, int creditHours, int year) {
+    public Course(String name, String department, int creditHours, int year, Instructor instructor) {
         this.name = name;
         this.department = department;
         this.creditHours = creditHours;
         this.year = year;
+        this.instructor = instructor;
     }
 
     public Course(String id, String name, String department, int creditHours, int year) {
