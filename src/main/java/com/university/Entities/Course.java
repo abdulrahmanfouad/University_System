@@ -1,6 +1,7 @@
 package com.university.Entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Courses", schema = "public")
@@ -19,8 +20,10 @@ public class Course {
     private int year;
     @OneToOne(cascade = CascadeType.ALL)
     private Book book;
-    @ManyToOne()
+    @ManyToOne
     private Instructor instructor;
+    @ManyToMany(mappedBy = "courses")
+    private Set<Student> students;
 
     public Course() {
     }

@@ -18,7 +18,7 @@ public class Instructor {
     @Column(name = "department")
     private String department;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "instructor")
     private Set<Course> courses;
 
     public Instructor() {

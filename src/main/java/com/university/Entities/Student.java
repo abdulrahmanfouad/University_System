@@ -1,6 +1,7 @@
 package com.university.Entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Students",schema = "public")
@@ -20,16 +21,22 @@ public class Student {
     private int age;
     @Column(name = "address")
     private String address;
+    @ManyToMany
+    @JoinTable(name = "student_courses",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private Set<Course> courses;
 
     public Student() {
     }
 
-    public Student(String firstName, String lastName, String email, int age, String address) {
+    public Student(String firstName, String lastName, String email, int age, String address, Set<Course> courses) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.age = age;
         this.address = address;
+        this.courses = courses;
     }
 
     public Student(Integer id, String firstName, String lastName, String email, int age, String address) {
