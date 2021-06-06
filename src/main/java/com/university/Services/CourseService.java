@@ -1,8 +1,10 @@
 package com.university.Services;
 
 import com.university.Entities.Course;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 public interface CourseService {
     void addCourses(Course course);

@@ -1,11 +1,24 @@
 package com.university.Entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Courses", schema = "public")
 public class Course {
 
+    @Id
+    @Column(name = "id")
     private String id;
+    @Column(name = "name",nullable = false)
     private String name;
+    @Column(name = "department", nullable = false)
     private String department;
+    @Column(name = "creditHours")
     private int creditHours;
+    @Column(name = "year")
     private int year;
 
     public Course() {

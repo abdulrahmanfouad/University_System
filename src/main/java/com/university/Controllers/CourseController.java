@@ -1,4 +1,44 @@
 package com.university.Controllers;
 
+
+import com.university.Entities.Course;
+import com.university.Entities.Student;
+import com.university.Services.CourseService;
+import javassist.NotFoundException;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
 public class CourseController {
+
+    private final CourseService courseService;
+
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
+    }
+
+
+    @GetMapping("/Courses")
+    public List<Course> getAllCourses(){
+        return courseService.getCourses();
+    }
+
+    @GetMapping("/Courses/{id}")
+    public Course getCourseById(@PathVariable String id){
+        return courseService.getCourse(id);
+    }
+
+    @PostMapping("/Courses")
+    public void addCourse(@RequestBody Course course){
+        courseService.addCourses(course);
+    }
+    @PutMapping("/Courses/{id}")
+    public void updateCourse(@RequestBody Course course,@PathVariable String id) throws NotFoundException {
+        courseService.updateCourse(course,id);
+    }
+    @DeleteMapping("/Courses/{id}")
+    public void deleteCourse(@PathVariable String id){
+        courseService.deleteCourse(id);
+    }
 }
