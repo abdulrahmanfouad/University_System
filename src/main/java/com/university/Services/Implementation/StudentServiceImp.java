@@ -44,7 +44,7 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public void updateStudent(Student student, int id) throws NotFoundException {
-        Student student1 = studentRepository.getOne(id);
+        Student student1 = studentRepository.findById(id);
 
             student1.setFirstName(student.getFirstName());
             student1.setLastName(student.getLastName());

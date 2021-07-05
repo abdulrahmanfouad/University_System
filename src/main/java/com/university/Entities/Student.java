@@ -8,7 +8,6 @@ import java.util.Set;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "first_name",nullable = false)
@@ -28,6 +27,14 @@ public class Student {
     private Set<Course> courses;
 
     public Student() {
+    }
+
+    public Student(String firstName, String lastName, String email, int age, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.age = age;
+        this.address = address;
     }
 
     public Student(String firstName, String lastName, String email, int age, String address, Set<Course> courses) {
