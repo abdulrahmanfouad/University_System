@@ -46,7 +46,7 @@ public class InstructorServiceImp implements InstructorService {
 
     @Override
     public void updateInstructor(Instructor instructor, int id) {
-        Instructor instructor1 = instructorRepository.getOne(id);
+        Instructor instructor1 = instructorRepository.findById(id);
         instructor1.setName(instructor.getName());
         instructor1.setDepartment(instructor.getDepartment());
         instructor1.setOffice(instructor.getOffice());

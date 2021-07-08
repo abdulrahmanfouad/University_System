@@ -38,13 +38,8 @@ public class BookServiceImp implements BookService {
     }
 
     @Override
-    public Book getBookByCourseId(String courseID) {
-        return bookRepository.findByCourseId(courseID);
-    }
-
-    @Override
     public void updateBook(Book book, int id) throws NotFoundException {
-        Book book1 = bookRepository.getOne(id);
+        Book book1 = bookRepository.findById(id);
         book1.setName(book.getName());
         book1.setAuthor(book.getAuthor());
         bookRepository.save(book1);

@@ -45,7 +45,7 @@ public class CourseServiceImp implements CourseService {
 
     @Override
     public void updateCourse(Course course, String id) {
-        Course course1 = courseRepository.getOne(id);
+        Course course1 = courseRepository.findCourseById(id);
 
         course1.setName(course.getName());
         course1.setDepartment(course.getDepartment());

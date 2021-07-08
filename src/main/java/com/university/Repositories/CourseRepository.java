@@ -11,5 +11,5 @@ public interface CourseRepository extends JpaRepository<Course, String> {
 
     Course findCourseById(String id);
     List<Course> findAllByInstructorId(int instructorId);
-    Course getOne(String id);
+
 }

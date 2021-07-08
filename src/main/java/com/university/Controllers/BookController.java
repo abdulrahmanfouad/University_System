@@ -28,11 +28,6 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
-    @GetMapping("/Book/{courseId}")
-    public Book getBookByCourseId(@PathVariable String courseId){
-        return bookService.getBookByCourseId(courseId);
-    }
-
     @PostMapping("/Books")
     public void addBooks(@RequestBody Book book){
         bookService.addBooks(book);
