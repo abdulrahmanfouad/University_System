@@ -20,7 +20,7 @@ public class InstructorController {
     }
 
     @GetMapping("/Instructors")
-    public List<Instructor> getAllBooks(){
+    public List<Instructor> getAllInstructors(){
         return instructorService.getInstructors();
     }
 
@@ -38,11 +38,11 @@ public class InstructorController {
         instructorService.addInstructors(instructor);
     }
     @PutMapping("/Instructors/{id}")
-    public void updateStudent(@RequestBody Instructor instructor,@PathVariable int id) throws NotFoundException {
+    public void updateInstructor(@RequestBody Instructor instructor,@PathVariable int id) throws NotFoundException {
         instructorService.updateInstructor(instructor,id);
     }
     @DeleteMapping("/Instructors/{id}")
-    public void deleteStudent(@PathVariable int id){
+    public void deleteInstructor(@PathVariable int id){
         instructorService.deleteInstructor(id);
     }
 }

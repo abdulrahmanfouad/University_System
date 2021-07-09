@@ -14,12 +14,14 @@ public class Course {
     private String name;
     @Column(name = "department", nullable = false)
     private String department;
-    @Column(name = "creditHours")
+    @Column(name = "credit_Hours")
     private int creditHours;
     @Column(name = "year")
     private int year;
     @OneToOne(cascade = CascadeType.ALL)
     private Book book;
+
+
     @ManyToOne
     private Instructor instructor;
     @ManyToMany(mappedBy = "courses")
@@ -42,6 +44,16 @@ public class Course {
         this.department = department;
         this.creditHours = creditHours;
         this.year = year;
+    }
+
+    public Course(String id, String name, String department, int creditHours, int year, Book book, Instructor instructor) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.creditHours = creditHours;
+        this.year = year;
+        this.book = book;
+        this.instructor = instructor;
     }
 
     public String getId() {
@@ -83,4 +95,21 @@ public class Course {
     public void setYear(int year) {
         this.year = year;
     }
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
+
+
 }

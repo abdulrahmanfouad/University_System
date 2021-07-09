@@ -10,6 +10,5 @@ import java.util.List;
 public interface InstructorRepository extends JpaRepository<Instructor, Integer> {
     Instructor findById(int id);
     List<Instructor> findAllByDepartment(String department);
-    Instructor getOne(Integer id);
 
 }
